@@ -1,0 +1,150 @@
+.testimonials {
+  margin: 4.5rem 1.5rem;
+
+  &__grid {
+    // max-width: 20.5rem;
+
+    display: grid;
+    gap: 1.5rem;
+
+    grid-template-areas:
+      "first"
+      "second"
+      "third"
+      "fourth"
+      "fifth";
+
+    @include media-breakpoint-up(md) {
+      grid-template-areas:
+        "first first"
+        "second third"
+        "fourth fifth";
+    }
+
+    @include media-breakpoint-up(lg) {
+      grid-template-areas:
+        "first first fourth"
+        "second second fifth"
+        "third third fifth";
+    }
+
+    @include media-breakpoint-up(2xl) {
+      width: 69.375rem;
+
+      grid-auto-columns: 1fr;
+      grid-template-columns: repeat(4, 1fr);
+      // grid-template-rows: repeat(2, 1fr);
+      gap: 1.5rem 1.75rem;
+      grid-template-areas:
+        "first first second fifth"
+        "third fourth fourth fifth";
+    }
+  }
+
+  &__card {
+    padding: 1.5rem 2.0625rem 2rem 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 6px 10px 15px -3px $theme-light-gray-color;
+
+    &--first {
+      grid-area: first;
+    }
+
+    &--second {
+      grid-area: second;
+    }
+
+    &--third {
+      grid-area: third;
+    }
+
+    &--fourth {
+      grid-area: fourth;
+    }
+
+    &--fifth {
+      grid-area: fifth;
+    }
+
+    &--moderate-violet {
+      background: url("../../../assets/images/bg-pattern-quotation.svg")
+        no-repeat right 1.5rem top;
+
+      background-color: $theme-moderate-violet-color;
+
+      @include media-breakpoint-up(2xl) {
+        background-position: right 18% top;
+      }
+    }
+
+    &--very-dark-grayish-blue {
+      background-color: $theme-very-dark-grayish-blue-color;
+      color: $theme-white-color;
+    }
+
+    &--moderate-violet,
+    &--very-dark-blackish-blue {
+      color: $theme-white-color;
+
+      &:has(img) {
+        img {
+          outline: 2px solid hsl(263, 55%, 62%);
+        }
+      }
+    }
+
+    &--very-dark-blackish-blue {
+      background-color: $theme-very-dark-blackish-blue-color;
+    }
+
+    &--white {
+      background-color: $theme-white-color;
+      color: $theme-very-dark-grayish-blue-color;
+    }
+  }
+
+  &__header {
+    @include flex(row, flex-start, center);
+    margin-bottom: 1rem;
+  }
+
+  &__image {
+    margin-right: 1rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 100%;
+  }
+
+  &__author {
+    line-height: 1.35;
+  }
+
+  &__name {
+    font-weight: 600;
+  }
+
+  &__verification {
+    opacity: 0.5;
+    font-size: 0.6875rem;
+    font-weight: 600;
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+    // margin-right: 0.625rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  &__quote {
+    line-height: 1.38;
+    opacity: 0.7;
+
+    &::before {
+      content: open-quote;
+    }
+    &::after {
+      content: close-quote;
+    }
+  }
+}
